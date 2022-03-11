@@ -10,7 +10,7 @@ public class Token {
     static StringBuilder sBuldier = new StringBuilder(length);
 
 
-    public static void number() {
+     static void number() {
         System.out.println("Enter code length you require 5, 10 or 15 ");
         length = Integer.parseInt(sc.nextLine());
         if (length % 5 > 0 || length > 15) {
