@@ -12,9 +12,10 @@ public class Token {
 
     public static void number() throws Exception {
         System.out.println("Enter code length you require 5, 10 or 15 ");
-        lenght = sc.nextInt();
+        lenght = Integer.parseInt(sc.nextLine());
         if (lenght % 5 > 0 || lenght > 15) {
-            throw new Exception("Wrong number entered, please try again");
+            System.out.println("Wrong number entered, please try again");
+            number();
         }
     }
 
