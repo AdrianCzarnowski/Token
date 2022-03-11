@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,9 +11,15 @@ public class Token {
     static StringBuilder sBuldier = new StringBuilder(length);
 
 
-     static void number() {
+    static void number() {
         System.out.println("Enter code length you require 5, 10 or 15 ");
-        length = Integer.parseInt(sc.nextLine());
+        try {
+            length = Integer.parseInt(sc.nextLine());
+            number();
+        } catch (NumberFormatException e){
+            System.out.println("You can use integers only. Try again");
+            number();
+        }
         if (length % 5 > 0 || length > 15) {
             System.out.println("Wrong number entered, please try again");
             number();
@@ -21,13 +28,12 @@ public class Token {
 
     static String generator() {
         System.out.println("Your tokens :");
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < length; j++) {
-                sBuldier.append(str1.charAt(random.nextInt(str1.length())));
-            }
-            System.out.println("  " + sBuldier.toString());
+        for (int j = 0; j < length; j++) {
+            sBuldier.append(str1.charAt(random.nextInt(str1.length())));
         }
+        System.out.println("  " + sBuldier.toString());
         return sBuldier.toString();
-
     }
+
 }
+
